@@ -4,4 +4,4 @@ Soundside Mobile allows Soundside Church to present digital worship guides to it
 
 Link to frontend: https://github.com/jls-github/soundside-mobile-frontend
 
-Technologies used: React, Ruby on Rails, JWT Authorization, all custom CSS
+Technologies used: React, Ruby on Rails, JWT Authorization, SASS, ReactCSSTransitionGroup
