@@ -3,7 +3,10 @@ class Service < ApplicationRecord
     has_many :service_sections
 
     def self.serialized_services
-        Service.all.map {|service| {date: service.date, id: service.id}}.sort{|service| service[:id]} #should encrypt this in the future
+        Service.all.sort{|service| service.id}.map {|service| {
+            date: service.date.strftime("%b %e"),
+            id: service.id
+        }}#should encrypt service_id? in the future
     end
 
     def serialized_sections
