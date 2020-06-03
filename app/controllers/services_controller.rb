@@ -13,6 +13,5 @@ class ServicesController < ApplicationController
             render json: {error: "Couldn't find the service you were looking for"}
         end
     end
-
-
+    
 end
