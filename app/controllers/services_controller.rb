@@ -1,7 +1,7 @@
 class ServicesController < ApplicationController
 
     def index
-        render json: Service.serialized_services
+        render json: Service.serialized_services 
     end
 
     def show
