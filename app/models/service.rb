@@ -1,7 +1,7 @@
 class Service < ApplicationRecord
     belongs_to :church
     has_many :service_sections
-    accepts_nested_attributes_for :slides
+    accepts_nested_attributes_for :service_sections
 
     def self.serialized_services
         Service.all.sort{|service| service.id}.map {|service| {
