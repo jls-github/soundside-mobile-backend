@@ -11,16 +11,19 @@ class Service < ApplicationRecord
     end
 
     def serialized_sections #need to sort services by date, not id
-        self.service_sections.map {|service_section| {
-            title: service_section.title, 
-            id: service_section.id,
-            slides: service_section.slides.map {|slide| {
-                title: slide.title ? slide.title : service_section.title, 
-                content: slide.content, 
-                id: slide.id}
-            }.sort{|slide| -slide[:id] }
-            }
-        }.sort{|service_section| -service_section[:id] }
+        {
+            date: self.date, 
+            sections: self.service_sections.map {|service_section| {
+                title: service_section.title, 
+                id: service_section.id,
+                slides: service_section.slides.map {|slide| {
+                    title: slide.title ? slide.title : service_section.title, 
+                    content: slide.content, 
+                    id: slide.id}
+                }.sort{|slide| -slide[:id] }
+                }
+            }.sort{|service_section| -service_section[:id] }
+        }
     end
 
 end
