@@ -52,7 +52,7 @@ class ServicesController < ApplicationController
     private
 
     def service_params
-        params.require(:service).permit(:title, :date, slide_attributes: [:title, :content])
+        params.require(:service).permit(:title, :date, service_section_attributes: [:title, slide_attributes: [:title, :content]])
     end
     
 end
