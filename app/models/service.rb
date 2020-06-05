@@ -12,7 +12,7 @@ class Service < ApplicationRecord
 
     def serialized_sections #need to sort services by date, not id
         {
-            date: self.date, 
+            date: self.date.strftime("%Y-%m-%d"), 
             sections: self.service_sections.map {|service_section| {
                 title: service_section.title, 
                 id: service_section.id,
