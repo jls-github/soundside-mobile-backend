@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
   resources :services, only: [:index, :show, :create, :destroy]
   put '/services/:id', to: 'services#update'
-  get '/login', to: 'auth#create'
+  post '/login', to: 'auth#create'
+  get '/validate', to: 'auth#validate'
 
 end

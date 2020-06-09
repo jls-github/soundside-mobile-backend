@@ -1,4 +1,5 @@
 class AuthController < ApplicationController
+    skip_before_action :authorized, only: :create
 
     def create
         @site_admin = SiteAdmin.find_by(username: login_params[:username])
@@ -8,6 +9,10 @@ class AuthController < ApplicationController
         else
             render json: { error: "Invalid username or password" }, status: :unauthorized
         end
+    end
+
+    def validate
+        render json: {message: "user valid"}
     end
 
     private

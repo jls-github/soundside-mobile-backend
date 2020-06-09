@@ -22,7 +22,7 @@ class ApplicationController < ActionController::API
 
     def current_user
         if decoded_token
-            admin_id = decoded_token[0]['user_id']
+            admin_id = decoded_token[0]['site_admin_id']
             begin
                 @site_admin = SiteAdmin.find(admin_id)
             rescue ActiveRecord::RecordNotFound
