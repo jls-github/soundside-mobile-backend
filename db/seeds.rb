@@ -24,7 +24,7 @@ SiteAdmin.create(username: "Johh", password: "JohnCalvin", email: "test4@test.co
 puts "Seeded SiteAdmins"
 
 Service.create(date: Time.new(2020, 5, 31), church: Church.first)
-Service.create(date: Time.new(2020, 6, 7), church: Church.first)
+# Service.create(date: Time.new(2020, 6, 7), church: Church.first)
 
 puts "Seeded Services"
 
@@ -35,19 +35,23 @@ ServiceSection.create(title: "Open the Eyes of My Heart", service: Service.first
 ServiceSection.create(title: "10000 Reasons", service: Service.first)
 ServiceSection.create(title: "Sermon", service: Service.first)
 
-ServiceSection.create(title: "Service Overview", service: Service.second)
-ServiceSection.create(title: "Come Thou Fount, Come Thou King", service: Service.second)
-ServiceSection.create(title: "My Lighthouse", service: Service.second)
-ServiceSection.create(title: "Scripture Reading", service: Service.second)
-ServiceSection.create(title: "Open the Eyes of My Heart", service: Service.second)
-ServiceSection.create(title: "Sermon", service: Service.second)
+# ServiceSection.create(title: "Service Overview", service: Service.second)
+# ServiceSection.create(title: "Come Thou Fount, Come Thou King", service: Service.second)
+# ServiceSection.create(title: "My Lighthouse", service: Service.second)
+# ServiceSection.create(title: "Scripture Reading", service: Service.second)
+# ServiceSection.create(title: "Open the Eyes of My Heart", service: Service.second)
+# ServiceSection.create(title: "Sermon", service: Service.second)
 
 puts "Seeded ServiceSections"
 
-Slide.create(title: nil, content: "Waymaker\nScripture Reading\nOpen the Eyes of My Heart\n10000 Reasons\nMessage from Aaron")
+Slide.create(title: nil, content: "Waymaker\nScripture Reading\nOpen the Eyes of My Heart\n10000 Reasons\nMessage from Aaron", service_section: ServiceSection.first)
 Slide.create(title: nil, content: "You are here, moving in our midst\nI worship You\nI worship You\n(x4)", service_section: ServiceSection.second)
 Slide.create(title: nil, content: "And You are\nWay maker, miracle worker,\nPromise keeper\nLight in the darkness\nMy God, that is who You are", service_section: ServiceSection.second)
 Slide.create(title: "Revelation 11:16", content: "Then the seventh angel blew his trumpet, and there were loud voices in heaven, saying, “The kingdom of the world has become the kingdom of our Lord and of his Christ, and he shall reign forever and ever.", service_section: ServiceSection.third)
+Slide.create(title: nil, content: "You are here, moving in our midst\nI worship You\nI worship You\n(x4)", service_section: ServiceSection.fourth)
+Slide.create(title: nil, content: "And You are\nWay maker, miracle worker,\nPromise keeper\nLight in the darkness\nMy God, that is who You are", service_section: ServiceSection.fifth)
+Slide.create(title: nil, content: "You are here, moving in our midst\nI worship You\nI worship You\n(x4)", service_section: ServiceSection.fifth)
+Slide.create(title: nil, content: "And You are\nWay maker, miracle worker,\nPromise keeper\nLight in the darkness\nMy God, that is who You are", service_section: ServiceSection.all[5])
 
 puts "Seeded Slides"
 
