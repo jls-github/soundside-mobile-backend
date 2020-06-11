@@ -22,7 +22,7 @@ class Service < ApplicationRecord
             date: self.date.strftime("%Y-%m-%d"), 
             sections: self.service_sections.order(id: :asc).map {|service_section| {
                 title: service_section.title, 
-                slides: service_section.slides.order(id: :asc).pluck(:title, :content)
+                slides: service_section.slides.order(id: :asc).pluck(:title, :content).map{|title, content| {title: title, content: content}}
                 }
             }
         }
