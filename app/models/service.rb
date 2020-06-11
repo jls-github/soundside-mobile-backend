@@ -5,10 +5,16 @@ class Service < ApplicationRecord
     validates :date, presence: true
 
     def self.serialized_services
-        Service.all.sort{|service| service.id}.map {|service| {
+        Service.order(date: :desc).map {|service| {
             date: service.date.strftime("%b %e"),
             id: service.id
-        }}#should encrypt service_id? in the future
+        }}
+        #should encrypt service_id? in the future
+    end
+
+    def self.closest_service
+        @service = Service.all.sort_by {|service| (service.date.to_time - Date.today.to_time).abs }.first
+        return {date: @service.date.strftime("%b %e"), id: @service.id}
     end
 
     def serialized_sections #need to sort services by date, not id

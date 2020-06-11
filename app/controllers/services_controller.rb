@@ -1,5 +1,5 @@
 class ServicesController < ApplicationController
-    skip_before_action :authorized, only: [:index, :show]
+    skip_before_action :authorized, only: [:show, :current_service]
 
     def index
         render json: Service.serialized_services 
@@ -13,6 +13,10 @@ class ServicesController < ApplicationController
         else
             render json: {error: "Couldn't find the service you were looking for"}
         end
+    end
+
+    def current_service
+        render json: Service.closest_service
     end
 
     def create
