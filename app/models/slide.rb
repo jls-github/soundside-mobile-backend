@@ -1,7 +1,7 @@
 class Slide < ApplicationRecord
   belongs_to :service_section
   validates :content, presence: true
-  before_save: default_values
+  before_save :default_values
 
 
   def default_values
