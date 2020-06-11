@@ -2,7 +2,7 @@ class ApplicationController < ActionController::API
     before_action :authorized
 
     def encode_token(payload)
-        JWT.encode(payload, 'secret')
+        JWT.encode(payload, Rails.application.secrets.secret_key_base)
     end
 
     def auth_header
@@ -13,7 +13,7 @@ class ApplicationController < ActionController::API
         if auth_header
             token = auth_header.split(" ")[1]
             begin
-                JWT.decode(token, 'secret')
+                JWT.decode(token, Rails.application.secrets.secret_key_base)
             rescue JWT::DecodeError
                 nil
             end
