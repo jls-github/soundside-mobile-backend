@@ -1,4 +1,4 @@
-class ConnectionController < ApplicationController
+class ConnectionsController < ApplicationController
     skip_before_action :authorized, only: :create
     def index
         render json: Connection.all
