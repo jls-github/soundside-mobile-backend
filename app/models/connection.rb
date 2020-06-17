@@ -8,7 +8,7 @@ class Connection < ApplicationRecord
             learn_about_jesus: connection.learn_about_jesus, 
             hear_about_church: connection.hear_about_church, 
             talk_to_pastor: connection.talk_to_pastor, 
-            date: connection.created_at.strftime("%Y-%m-%d")
+            date: connection.created_at.strftime("%b %e")
         }}
     end
     
